@@ -6,17 +6,15 @@ This project demonstrates how to manage configuration for multiple Spring Boot m
 
 ## 📦 Project Structure
 
+```bash
 centralized-demo/
-├── config-server/ # Centralized configuration server (Spring Boot)
-├── discovery-server/ # Eureka service discovery server
-├── service-one/ # First microservice using centralized config
-├── service-two/ # Second microservice using centralized config
-├── config-repo/ # Git-backed configuration repository
-└── docker-compose.yml # Docker orchestration
+├── config-server/         # Centralized configuration server (Spring Boot)
+├── discovery-server/      # Eureka service discovery server
+├── service-one/           # First microservice using centralized config
+├── service-two/           # Second microservice using centralized config
+├── config-repo/           # Git-backed configuration repository
+└── docker-compose.yml     # Docker orchestration
 
-yaml
-Copy
-Edit
 
 ---
 
@@ -49,10 +47,8 @@ Edit
 ```bash
 git clone https://github.com/your-username/centralized-demo.git
 cd centralized-demo
+
 2. Initialize the Config Git Repo
-bash
-Copy
-Edit
 cd config-repo
 git init
 git add .
@@ -61,9 +57,7 @@ cd ..
 This step is required because Spring Cloud Config Server expects a Git-backed config repository — even if it's local.
 
 3. Build & Run with Docker Compose
-bash
-Copy
-Edit
+
 docker-compose up --build
 🌐 Access Services
 Service	URL
