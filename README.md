@@ -71,7 +71,7 @@ docker-compose up --build
 Service	URL
 
 
-Eureka Server	http://localhost:8761
+Eureka Server	http://localhost:8082
 
 
 Config Server	http://localhost:8080
@@ -80,7 +80,7 @@ Config Server	http://localhost:8080
 Service One	http://localhost:8081/message
 
 
-Service Two	http://localhost:8082/message
+Service Two	http://localhost:8083/message
 
 
 
