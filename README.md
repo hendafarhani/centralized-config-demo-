@@ -14,6 +14,7 @@ centralized-demo/
 ├── service-two/           # Second microservice using centralized config
 ├── config-repo/           # Git-backed configuration repository
 └── docker-compose.yml     # Docker orchestration
+```
 
 
 ---
@@ -47,49 +48,62 @@ centralized-demo/
 ```bash
 git clone https://github.com/your-username/centralized-demo.git
 cd centralized-demo
+```
 
-2. Initialize the Config Git Repo
+### 2. Initialize the Config Git Repo
+```bash
 cd config-repo
 git init
 git add .
 git commit -m "Initial commit"
 cd ..
+```
 This step is required because Spring Cloud Config Server expects a Git-backed config repository — even if it's local.
 
-3. Build & Run with Docker Compose
+### 3. Build & Run with Docker Compose
 
+```bash
 docker-compose up --build
+```
 🌐 Access Services
+
+
 Service	URL
+
+
 Eureka Server	http://localhost:8761
+
+
 Config Server	http://localhost:8080
+
+
 Service One	http://localhost:8081/message
+
+
 Service Two	http://localhost:8082/message
+
+
 
 📁 Example Config Files
 Inside config-repo/:
 
 service-one.properties
-properties
-Copy
-Edit
+```yml:
 custom.message=Hello from Service One!
+```
 service-two.properties
-properties
-Copy
-Edit
+```yml:
 custom.message=Hello from Service Two!
+```
 📩 API Test
 After startup, test services:
 
-bash
-Copy
-Edit
 curl http://localhost:8081/message
 # Hello from Service One!
 
 curl http://localhost:8082/message
 # Hello from Service Two!
+
 🧠 Optional Enhancements
 🔄 Spring Cloud Bus with RabbitMQ for live config refresh
 
@@ -104,10 +118,6 @@ Feel free to fork, improve, or suggest enhancements!
 
 📜 License
 MIT — use this freely for educational or commercial projects.
-
-yaml
-Copy
-Edit
 
 ---
 
