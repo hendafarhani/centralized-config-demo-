@@ -32,7 +32,7 @@ centralized-demo/
 
 ## 🧰 Technologies Used
 
-- Java 17
+- Java 21
 - Spring Boot
 - Spring Cloud Config
 - Spring Cloud Netflix Eureka
