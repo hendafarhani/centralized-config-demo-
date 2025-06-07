@@ -1,0 +1,46 @@
+networks:
+  micro-service-network:
+    driver: bridge
+
+services:
+  config-server:
+    build: ./config-server
+    networks:
+      - micro-service-network
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config-repo:/config-repo
+
+  service-one:
+    build: ./service-one
+    ports:
+      - "8081:8081"
+    networks:
+      - micro-service-network
+    restart: unless-stopped
+    environment:
+      SPRING_CONFIG_IMPORT: optional:configserver:http://config-server:8080
+    depends_on:
+      - config-server
+
+  service-two:
+    build: ./service-two
+    ports:
+      - "8083:8083"
+    networks:
+      - micro-service-network
+    restart: unless-stopped
+    environment:
+      SPRING_CONFIG_IMPORT: optional:configserver:http://config-server:8080
+    depends_on:
+      - config-server
+
+  discovery:
+    build: ./discovery-server
+    networks:
+      - micro-service-network
+    depends_on:
+      - config-server
+    ports:
+      - "8082:8082"
