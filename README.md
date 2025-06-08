@@ -65,10 +65,7 @@ This step is required because Spring Cloud Config Server expects a Git-backed co
 ```bash
 docker-compose up --build
 ```
-🌐 Access Services
-
-
-Service	URL
+## 🌐 Access Services
 
 
 Eureka Server	http://localhost:8082
@@ -84,7 +81,7 @@ Service Two	http://localhost:8083/message
 
 
 
-📁 Example Config Files
+## 📁 Example Config Files
 Inside config-repo/:
 
 service-one.properties
@@ -93,18 +90,31 @@ custom.message=Hello from Service One!
 ```
 service-two.properties
 ```yml:
-custom.message=Hello from Service Two!
+custom.message=Greetings from Service Two!
 ```
-📩 API Test
+## 📩 API Test
 After startup, test services:
 
+```bash
 curl http://localhost:8081/message
-# Hello from Service One!
 
+
+Response: Hello from Service One!
+
+```
+ 
+```bash
 curl http://localhost:8082/message
-# Hello from Service Two!
 
-🧠 Optional Enhancements
+
+Response: Greetings from Service Two!
+
+```
+
+ 
+ 
+
+## 🧠 Optional Enhancements
 🔄 Spring Cloud Bus with RabbitMQ for live config refresh
 
 🔐 Encrypted properties in config files
@@ -116,7 +126,7 @@ curl http://localhost:8082/message
 🤝 Contributing
 Feel free to fork, improve, or suggest enhancements!
 
-📜 License
+## 📜 License
 MIT — use this freely for educational or commercial projects.
 
 ---
